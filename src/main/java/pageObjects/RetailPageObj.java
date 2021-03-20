@@ -23,9 +23,11 @@ public class RetailPageObj extends Base {
 	// we need to store UI WebElements in a private weElement using @FindBy annotations of
 	//PageFactory class
 	
+	@FindBy(xpath="//a[@class='see-all' and contains(text(), 'Show All Laptops')]")
+	private WebElement ShowAllLaptopsNotebooks;
 	
-	
-	
+	@FindBy(xpath="//a[contains(text(), 'Laptops & Notebooks') and @class='dropdown-toggle']")
+	private WebElement LaptopsNotebooksTab;
 	
 	@FindBy(xpath="//a[contains(text(), 'Desktops') and @class='dropdown-toggle']")
 	private WebElement desktopsTab;
@@ -178,4 +180,15 @@ public class RetailPageObj extends Base {
 	public void clickOnShowAllDesktops() {
 		WebDriverUtility.clickOnElement(showAllDesktopsButton);
 	}
+	
+	public void clickOn_LaptopsNotebooksTab() {
+		WebDriverUtility.clickOnElement(LaptopsNotebooksTab);
+	}
+	
+	
+	public void clickOn_ShowAllLaptopsNotebooks() {
+		WebDriverUtility.clickOnElement(ShowAllLaptopsNotebooks);
+	}
+
+
 }

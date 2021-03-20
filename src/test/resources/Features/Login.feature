@@ -8,11 +8,11 @@ Background:
 	And User click  on MyAccount
 	
 	
-@login @SmokeTest 
+@loginSmokeTest 
 Scenario: Login to MyAccount 
 
 	When  User click on Login 
-	And User enter username 'sdet@tekschool.us' and password 'sdet' 
+	And User enter username 'donDraper@yaho.com' and password 'donalddr14' 
 	And User click on Login button 
 	Then User should be logged in to MyAccount dashboard 
 	
@@ -30,6 +30,7 @@ Scenario Outline: Login to Retail Site with multiple users
 	
 	Examples: 
 		|userName|password|
+		|donDraper@yaho.com|donalddr14|
 		|sdet@tekschool.us|sdet|
 		|consumer@tekschool.us|JBond|
 		|students@tekschool.us|TEST|

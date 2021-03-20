@@ -107,6 +107,23 @@ public class RetailPageTestStepDefinitions extends Base {
 					WebDriverUtility.screenShot();
 					
 	}
+		
+	
+	@When("^User click on Laptop&NoteBooktab$")
+	public void user_click_on_Laptop_NoteBooktab() throws Throwable {
+		retailPage.clickOn_LaptopsNotebooksTab();
+		logger.info("User clicked on Laptops & Notebooks tab");
+		WebDriverUtility.screenShot();
+	   	}
+
+	@And("^User click on Show all Laptop&NoteBook option$")
+	public void user_click_on_Show_all_Laptop_NoteBook_option() throws Throwable {
+		retailPage.clickOn_ShowAllLaptopsNotebooks();
+		logger.info("User clicked on Show All Laptops & Notebooks tab");
+		WebDriverUtility.screenShot();
+	}
+	
+	
 	
 
 	

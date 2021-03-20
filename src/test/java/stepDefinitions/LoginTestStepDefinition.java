@@ -1,7 +1,8 @@
 package stepDefinitions;
 
-import org.junit.Assert;
 
+
+import org.junit.Assert;
 
 import core.Base;
 import cucumber.api.java.en.Given;
@@ -69,6 +70,7 @@ public class LoginTestStepDefinition extends Base {
 		WebDriverUtility.wait(3000);
 		WebDriverUtility.screenShot();
 	}
+	
 	
 	
 

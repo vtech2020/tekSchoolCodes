@@ -17,8 +17,7 @@ public class DesktopPageObj extends Base {
 }
 
 		
-		//example each element of product block is described (picture, text link, description, price, tax)
-		
+			
 		
 		@FindBy(xpath="//body/div[@id='product-category']/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]")
 		private WebElement appleCinema30Picture;
@@ -39,7 +38,6 @@ public class DesktopPageObj extends Base {
 		private WebElement appleCinema30PriceTax;
 		
 		
-		// other elements located by TextLink	
 		
 				
 		@FindBy(xpath="//a[contains(text(),'Canon EOS 5D')]")
@@ -77,6 +75,8 @@ public class DesktopPageObj extends Base {
 		private WebElement SonyVAIOTextLink;
 		
 		
+		
+		
 		//elements for the page of HP LP3065
 		
 		@FindBy(id="input-quantity")
@@ -88,7 +88,52 @@ public class DesktopPageObj extends Base {
 		@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 		private WebElement addToCart_For_HPLP3065_successMessageAlert;
 		
-			
+		
+		//elements for Canon EOS 5D
+		
+		@FindBy(xpath="//img[@title='Canon EOS 5D']")
+		private WebElement CanonEOS5D_photo;
+		
+		@FindBy(xpath="//body/div[@id='product-category']/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/button[1]")
+		private WebElement addToCart_CanonEOS5D_Btn;
+		
+		 		
+		@FindBy(id="input-option226")
+		private WebElement CanonEOS5D_Select_Color_DropDown;
+		
+										
+		@FindBy(id="input-quantity")
+		private WebElement quantity_CanonEOS5D_Field;
+		
+		@FindBy(xpath="//button[@id='button-cart']")
+		private WebElement addToCart_For_CanonEOS5D_Page_Btn;
+		
+		@FindBy(xpath="//body/div[@id='product-product']/div[1]")
+		private WebElement addToCart_For_CanonEOS5D_successMessageAlert;
+		
+		
+		//Elements for Canon EOS 5D review case
+		
+		@FindBy(xpath="//a[contains(text(), 'Write a review')]")
+		private WebElement WriteReviewLink_CanonEOS5D;
+				
+		@FindBy(id="input-name")
+		private WebElement yourNameField_Review;
+		
+		////textarea[@id='input-review']
+		
+		@FindBy(id="input-review")
+		private WebElement yourReviewField;
+						
+		@FindBy(xpath="//input[contains(@value, '5') and @name='rating']")
+		private WebElement ratingRadioBtnGood;
+		
+		//button[@id='button-review']
+		@FindBy(id="button-review")
+		private WebElement continueBtnReview;
+		
+		@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+		private WebElement SuccessMessageReview;
 		
 		
 		//methods to check if the product is present on the page
@@ -223,8 +268,94 @@ public class DesktopPageObj extends Base {
 			    String text = addToCart_For_HPLP3065_successMessageAlert.getText();
 			    return text;
 		}
+		
+		
+		
+		
+		//methods for Canon EOS 5D
+		
+		
+		
+		public void clickOnAddToCart_CanonEOS5D_Btn() {
+			WebDriverUtility.clickOnElement(addToCart_CanonEOS5D_Btn);
+		}
+
+		
+		
+		public void select_Red_CanonEOS5D() {
+			//WebDriverUtility.clickOnElement(WebElement CanonEOS5D_Select_Color_DropDown);
+			WebDriverUtility.selectByVisibleText(CanonEOS5D_Select_Color_DropDown, "Red");
+		
+		}
+		
+		
+		public void enter_Qantity_CanonEOS5D(String quantity) {
+			if (quantity_CanonEOS5D_Field.isEnabled()) {
+			WebDriverUtility.clearText(quantity_CanonEOS5D_Field);
+			WebDriverUtility.enterValue(quantity_CanonEOS5D_Field, quantity);
+			} else System.out.println("Quantity field for CanonEOS5D is not displayed");
 			
 		}
+		
+	
+		public void clickOnAddToCart_For_CanonEOS5D_Page_Btn() {
+			WebDriverUtility.clickOnElement(addToCart_For_CanonEOS5D_Page_Btn);
+		}
+
+		
+		public boolean addToCart_For_CanonEOS5D_outcome() {
+			boolean successMessage = addToCart_For_CanonEOS5D_successMessageAlert.isDisplayed();
+			return successMessage;
+
+		}
+	
+		public String addToCart_For_CanonEOS5D_outcomeText() {
+		    String text = addToCart_For_CanonEOS5D_successMessageAlert.getText();
+		    return text;
+	}
+		
+		
+		
+		// methods for for Canon EOS 5D review case
+		
+		public void clickOn_CanonEOS5D_photo() {
+			WebDriverUtility.clickOnElement(CanonEOS5D_photo);
+		}
+		
+		public void clickOnWriteReview() {
+			WebDriverUtility.clickOnElement(WriteReviewLink_CanonEOS5D);
+		}
+		
+		public void writeNameRevievField(String yourname ) {
+			WebDriverUtility.clickOnElement(yourNameField_Review);
+			yourNameField_Review.sendKeys(yourname);
+		}
+		
+		public void writeRevievField(String yourReview ) {
+			WebDriverUtility.clickOnElement(yourReviewField);
+			yourReviewField.sendKeys(yourReview);
+		}
+	
+	
+			
+		public void clickOn_RatingRadioBtn_Good() {
+			WebDriverUtility.clickOnElement(ratingRadioBtnGood);
+		}
+		
+		
+		public void clickOn_Continue_Btn() {
+			WebDriverUtility.clickOnElement(continueBtnReview);
+		}
+		
+		
+		
+		
+		public boolean review_For_CanonEOS5D_outcome() {
+			boolean successMessage = SuccessMessageReview.isDisplayed();
+			return successMessage;
+		}
+
+}
 
 		
 		

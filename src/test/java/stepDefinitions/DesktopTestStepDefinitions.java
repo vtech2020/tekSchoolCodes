@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 
@@ -95,11 +96,101 @@ public class DesktopTestStepDefinitions extends Base {
 			logger.info("Success message for HP LP3065 is correct");*/
 			
 			//Success: you have added HP LP3065 to your Shopping cart!
-			
-			
-			
-			
+		
 			
 	}
 	
+	
+	// Canon EOS 5D
+	
+	@And("^User click ADD TO CART option on Canon EOS5D item$")
+		public void user_click_ADD_TO_CARToption_on_Canon_EOS_D_item() throws Throwable {
+			desktopPage.clickOnAddToCart_CanonEOS5D_Btn();
+			logger.info("User clicked on Add to cart option on Canon EOS 5D");
 	}
+	
+	/* @And("^User click ADD TO CART option on Canon EOS5D item&")
+			public void user_click_ADD_TO_CARToption_on_Canon_EOS_D_item() throws Throwable {
+				desktopPage.clickOnAddToCart_CanonEOS5D_Btn();
+				logger.info("User clicked on Add to cart option on Canon EOS 5D"); 
+	} */
+
+	@And("^User select color from dropdown Red$")
+			public void user_select_color_from_dropdown_Red() throws Throwable {
+				desktopPage.select_Red_CanonEOS5D();;
+				logger.info("User chose red color forCanon EOS 5D");
+				WebDriverUtility.screenShot();
+	}
+		
+	@And("^User select quantity '(.+)' CanonEOS5D$")
+			public void user_select_quantity_CanonEOS5D(String quantity) throws Throwable {
+				desktopPage.enter_Qantity_CanonEOS5D(quantity);
+				logger.info("User selected quantity for CanonEOS5D: " + quantity);
+				WebDriverUtility.screenShot();
+	}
+				
+
+	@And("^User click add to Cart button CanonEOS5D$")
+			public void user_click_add_to_Cart_buttont() throws Throwable {
+	    		desktopPage.clickOnAddToCart_For_CanonEOS5D_Page_Btn();
+	    		logger.info("User clicked on Add to cart option on Canon EOS 5D Page"); 
+	}
+
+	@Then("^User should see a message Success: You have added Canon EOS 5D to your shopping cart!$")
+			public void user_should_see_a_message_Success_you_have_added_CanonEOS5D_to_your_Shopping_cart() throws Throwable {
+				Assert.assertTrue(desktopPage.addToCart_For_CanonEOS5D_outcome());
+				WebDriverUtility.screenShot();
+				logger.info("Success message forCanon EOS 5D added to cart is displayed");
+}
+	
+	//review case
+	
+	@And("^User click on Canon EOS 5D item$")
+			public void user_click_Canon_EOS5D() throws Throwable {
+				desktopPage.clickOn_CanonEOS5D_photo();
+				logger.info("User clicked on Canon EOS 5D item");
+				WebDriverUtility.screenShot();
+	}
+	
+	@And("^User click on write a review link$")
+	public void user_click_on_write_a_review_link() throws Throwable {
+			desktopPage.clickOnWriteReview();
+			logger.info("User clicked on write a review link");
+			WebDriverUtility.screenShot();
+	    
+	}
+
+	@And("^user fill the review information with name '(.+)' and review '(.+)'$")
+	public void user_fill_the_review_information(String yourname, String yourReview) throws Throwable {
+			desktopPage.writeNameRevievField(yourname);
+			logger.info("user wrote the name in the review field");
+			desktopPage.writeRevievField(yourReview);
+			logger.info("user wrote review");
+			WebDriverUtility.screenShot();
+	   
+	}
+	
+		
+	@And("^user fills Rating field Bad or Good$")
+			public void user_fills_Rating_field() throws Throwable {
+			     desktopPage.clickOn_RatingRadioBtn_Good();
+			     logger.info("user clicked on review button");
+				 WebDriverUtility.screenShot();
+	}
+				 
+	@And("^User click on Continue Button$")
+			public void user_click_Continue_Button () throws Throwable {
+				desktopPage.clickOn_Continue_Btn();
+				logger.info("user clicked on continue button");
+				
+	}
+	
+	@Then("^User should see a message with Thank you for your review. It has been submitted to the webmaster for approval.$")
+			public void should_see_review_approval_message ( ) throws Throwable {
+			Assert.assertTrue(desktopPage.review_For_CanonEOS5D_outcome());
+			WebDriverUtility.screenShot();
+			logger.info("Success message for Canon review is checked");
+	}
+}
+	
+	
